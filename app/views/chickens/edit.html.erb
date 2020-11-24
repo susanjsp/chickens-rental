@@ -3,8 +3,8 @@
   <%= f.input :description %>
   <%= f.input :age %>
   <%= f.input :location %>
-  <%= f.input :breed %>
-  <%= f.input :egg_size %>
+  <%= f.input :breed, collection: Chicken::BREEDS %>
+  <%= f.input :egg_size, collection: Chicken::SIZES%>
   <%= f.input :daily_rate %>
   <%= f.submit %>
 <% end %>
