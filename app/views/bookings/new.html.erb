@@ -1,0 +1,12 @@
+<h2>Create New Booking</h2>
+
+<!-- Display chicken name, owner name -->
+<!-- Display total price -->
+
+<%= simple_form_for [@booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.button :submit %>
+<% end %>
+
+<%# = link_to 'Cancel Booking', chicken_path(@chicken) %>
