@@ -4,6 +4,7 @@ class Chicken < ApplicationRecord
 
 
   # belongs_to :owner, foreign_key: "owner_id", class_name: 'User'
+  has_one_attached :avatar
   validates :name, :location, :age, :daily_rate, :egg_size, presence: true
   validates :egg_size, inclusion: { in: SIZES }
   validates :breed, inclusion: { in: BREEDS }
