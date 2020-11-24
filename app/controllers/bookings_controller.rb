@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.customer = current_user
     @booking.chicken = @chicken
+    @booking.price = find_price(@chicken, @booking)
     @booking.save
 
     if @booking.save
@@ -33,5 +34,9 @@ class BookingsController < ApplicationController
   private
   def booking_params
     params.require(:booking).permit(:chicken_id, :start_date, :end_date)
+  end
+
+  def find_price(chicken, booking)
+    (booking.end_date - booking.start_date).to_i * chicken.daily_rate
   end
 end
