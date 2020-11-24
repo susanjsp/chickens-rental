@@ -5,7 +5,7 @@
 <% end %>
 
 <ul>
-  <li>Hi, my name is <%= @chicken.name %></li>
+  <li>Hi, my name is <%= @chicken.name %>, owned by <%= @chicken.owner.email %></li>
   <li>About me: <%= @chicken.description %></li>
   <li>Age: <%= @chicken.age %></li>
   <li>Egg size: <%= @chicken.egg_size %></li>
