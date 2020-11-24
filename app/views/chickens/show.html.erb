@@ -7,7 +7,8 @@
   <li>Egg size: <%= @chicken.egg_size %></li>
   <li>I am based in <%= @chicken.location %></li>
   <li>$<%= @chicken.daily_rate%> per day</li>
-  <li><%= link_to "Book Me!", new_chickens_booking_path %>
+  <li><%= link_to "Book Me!", new_chicken_booking_path(@chicken) %>
+
 </ul>
 
 <%= link_to "Return to all Chooks", chickens_path %>
