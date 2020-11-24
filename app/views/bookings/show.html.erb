@@ -4,4 +4,8 @@
 
 <%= link_to 'Back to chickens', chickens_path %>
 
+<%= link_to "Cancel booking",
+            booking_path(@booking),
+            method: :delete,
+            data: { confirm: "Are you sure you want to cancel your booking?" } %>
 
