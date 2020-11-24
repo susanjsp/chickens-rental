@@ -1,16 +1,17 @@
 class BookingsController < ApplicationController
-
+  before_action :find_chicken, only: [:new, :create]
+  before_action :find_booking, only: [:show, :destroy]
   def show
-    @booking = Booking.find(params[:id])
+    # @booking = Booking.find(params[:id])
   end
 
   def new
-    @chicken = Chicken.find(params[:chicken_id])
+    # @chicken = Chicken.find(params[:chicken_id])
     @booking = Booking.new
   end
 
   def create
-    @chicken = Chicken.find(params[:chicken_id])
+    # @chicken = Chicken.find(params[:chicken_id])
     @booking = Booking.new(booking_params)
     @booking.customer = current_user
     @booking.chicken = @chicken
@@ -25,15 +26,23 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
+    # @booking = Booking.find(params[:id])
     @booking.destroy
-
     redirect_to chickens_path
   end
 
   private
+
   def booking_params
     params.require(:booking).permit(:chicken_id, :start_date, :end_date)
+  end
+
+  def find_chicken
+    @chicken = Chicken.find(params[:chicken_id])
+  end
+
+  def find_booking
+    @booking = Booking.find(params[:id])
   end
 
   def find_price(chicken, booking)
