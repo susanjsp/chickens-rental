@@ -1,18 +1,18 @@
 <div class="navbar-lewagon" style="display: flex; justify-content: space-between;">
-  <div class="sign-up btn btn-danger">
+  <div class="sign-up btn btn-primary">
     <%= link_to "Sign up here", new_user_registration_path %>
   </div>
-  <div class="user-info">
-<!--  ##  @user.email  -->
+  <div class="user-info" style="border: solid 1px black;">
+    <em><%= link_to current_user.email, chickens_path %></em>
     <div class="avatar" placeholder="#">
     </div>
   </div>
 
 
 </div>
-<div class="container">
+<div class="container" style="text-align: center; margin-top: 100px; background-color: white;">
 
-  <h1 class="title">CHICKENS RENTAL</h1>
+  <h1 class="title" style="color: green;">CHICKENS RENTAL</h1>
 
   <p>Value proposition...</p>
   <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis,
@@ -22,11 +22,10 @@
 
 
 
-  <ul class="card-container">
-    <li class="card">
-      ##TO DO:Browse available chickens... add link
-<!--      ##  link_to "Browse available chickens...", chicken_path
- -->    </li>
+  <ul class="card-container" style="display: flex; justify-content: center;">
+    <li class="card btn btn-primary" style="margin-top: 100px; width: 100px;">
+      <%= link_to "Browse chickens", chickens_path %>
+    </li>
   </ul>
 
 </div>
