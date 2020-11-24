@@ -2,3 +2,9 @@
 
 <p>Your booking with <%= @booking.chicken.name %>.</p>
 <p>Booked from <%= @booking.start_date %> - <%= @booking.end_date %></p>
+
+
+<%= link_to "Cancel booking",
+            booking_path(@booking),
+            method: :delete,
+            data: { confirm: "Are you sure you want to cancel your booking?" } %>
