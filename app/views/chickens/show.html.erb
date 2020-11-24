@@ -1,5 +1,16 @@
-<h2><%= @chicken.name %></h2>
-<p><%= @chicken.description %></p>
+
+<h1><%=@chicken.name%></h1>
+<ul>
+  <li>Hi, my name is <%= @chicken.name %></li>
+  <li>About me: <%= @chicken.description %></li>
+  <li>Age: <%= @chicken.age %></li>
+  <li>Egg size: <%= @chicken.egg_size %></li>
+  <li>I am based in <%= @chicken.location %></li>
+  <li>$<%= @chicken.daily_rate%> per day</li>
+  <li><%= link_to "Book Me!", chickens_path %>
+</ul>
+
+<%= link_to "Return to all Chooks", chickens_path %>
 <%= link_to "Delete #{@chicken.name}",
             chicken_path(@chicken),
             method: :delete,

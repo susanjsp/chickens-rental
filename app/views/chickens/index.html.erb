@@ -1,0 +1,9 @@
+<h1>Chickens for Rent</h1>
+<ul>
+<% @chickens.each do |chicken| %>
+<li><%= link_to "#{chicken.name.capitalize}", chicken_path(chicken) %></li>
+<% end %>
+</ul>
+<%=link_to "Add a Chicken to rent", new_chicken_path %>
+
+
