@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Creating users..."
-user1 = User.new(email:'user1@user.com', password:'123456')
+user1 = User.new(email:'user1@user.com', password:'123456', username: "User 1")
 user1.save!
 
-user2 = User.new(email:'user2@user.com', password: '1234567')
+user2 = User.new(email:'user2@user.com', password: '1234567', username: "User 2")
 user2.save!
 
-user3 = User.new(email:'user3@user.com', password: '12345678')
+user3 = User.new(email:'user3@user.com', password: '12345678', username: "User 3")
 user3.save!
 
 puts "Creating chicken listings..."
