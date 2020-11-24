@@ -1,0 +1,6 @@
+<h2><%= @chicken.name %></h2>
+<p><%= @chicken.description %></p>
+<%= link_to "Delete #{@chicken.name}",
+            chicken_path(@chicken),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
