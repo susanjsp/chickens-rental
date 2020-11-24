@@ -1,3 +1,4 @@
+
 <h1><%=@chicken.name%></h1>
 <ul>
   <li>Hi, my name is <%= @chicken.name %></li>
@@ -10,3 +11,7 @@
 </ul>
 
 <%= link_to "Return to all Chooks", chickens_path %>
+<%= link_to "Delete #{@chicken.name}",
+            chicken_path(@chicken),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>

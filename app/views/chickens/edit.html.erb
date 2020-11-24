@@ -1,0 +1,10 @@
+<%= simple_form_for(@chicken) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :age %>
+  <%= f.input :location %>
+  <%= f.input :breed, collection: Chicken::BREEDS %>
+  <%= f.input :egg_size, collection: Chicken::SIZES%>
+  <%= f.input :daily_rate %>
+  <%= f.submit %>
+<% end %>
