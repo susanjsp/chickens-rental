@@ -14,7 +14,10 @@
   <li><%= link_to "Book Me!", new_chicken_booking_path(@chicken) %>
 </ul>
 
-<%= link_to 'See Reviews', bookings %>
+<% @chicken.reviews.each do |review| %>
+  <%= review.content %>
+<% end %>
+
 <%= link_to "Return to all Chooks", chickens_path %>
 <%= link_to "Delete #{@chicken.name}",
             chicken_path(@chicken),

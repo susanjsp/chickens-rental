@@ -1,4 +1,9 @@
 class ReviewsController < ApplicationController
+  def index
+    # Find all the reviews where the chicken_id matches current @chicken
+    @reviews = Review.where(booking: params[:chicken_id])
+  end
+
   def new
     @review = Review.new
     @booking = Booking.find(params[:booking_id])

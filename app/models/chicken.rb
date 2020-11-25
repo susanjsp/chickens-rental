@@ -5,6 +5,8 @@ class Chicken < ApplicationRecord
 
   belongs_to :owner, foreign_key: "owner_id", class_name: 'User'
   has_one_attached :avatar
+
+  has_many :bookings
   has_many :reviews, through: :bookings
 
   validates :name, :location, :age, :daily_rate, :egg_size, presence: true
