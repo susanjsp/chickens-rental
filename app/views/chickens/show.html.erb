@@ -3,6 +3,8 @@
 <div class='chicken-profile'>
 <% if @chicken.avatar.attached? %>
   <image src="<%= (url_for(@chicken.avatar))%>" class="avatar-chicken">
+<% else %>
+  <image src=<%= "https://i.guim.co.uk/img/media/30646649ad38eca6e8ddd6108af6de13e43117a4/475_196_4518_3323/master/4518.jpg?width=620&quality=85&auto=format&fit=max&s=02a090a0165f18d45705558a2a7d4d1b" %> class="avatar-chicken">
 <% end %>
 
 <ul>
@@ -17,16 +19,16 @@
 </ul>
 
 
-<h3>Reviews for <%= @chicken.name %> </h3>
-<div class="reviews">
+<div class='reviews-list'>
+  <h3>My reviews</h3>
+  <ul>
   <% @chicken.reviews.each do |review| %>
-    <div class="review">
-      <p><%= review.content %></p>
-      <p>Rating: <%= review.rating %> </p>
-      <p>Review by: <%= review.booking.customer.email %> </p>
-    </div>
-  <% end %>
-    </div>
+  <li><i><%= review.content %></i><strong> ~~~ <%= review.booking.customer.username %></strong>  (<%= review.rating %>/5)</li>
+<% end %>
+</ul>
+</div>
+</div>
+
 <div class="btn btn-info m-5">
 
 <%= link_to "Return to all Chooks", chickens_path %>
