@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :chickens, foreign_key: "owner_id"
   has_many :bookings, foreign_key: "customer_id"
+  has_many :reviews, through: :bookings
 end

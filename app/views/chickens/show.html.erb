@@ -12,14 +12,23 @@
   <li>Egg size: <%= @chicken.egg_size %></li>
   <li>I am based in <%= @chicken.location %></li>
   <li>$<%= @chicken.daily_rate%> per day</li>
+  <li>Overall rating: <%=  %> </li>
   <li><%= link_to "Book Me!", new_chicken_booking_path(@chicken) %>
 </ul>
 
-<% @chicken.reviews.each do |review| %>
-  <%= review.content %>
-<% end %>
-</div>
+
+<h3>Reviews for <%= @chicken.name %> </h3>
+<div class="reviews">
+  <% @chicken.reviews.each do |review| %>
+    <div class="review">
+      <p><%= review.content %></p>
+      <p>Rating: <%= review.rating %> </p>
+      <p>Review by: <%= review.booking.customer.email %> </p>
+    </div>
+  <% end %>
+    </div>
 <div class="btn btn-info m-5">
+
 <%= link_to "Return to all Chooks", chickens_path %>
 <%= link_to "Delete #{@chicken.name}",
             chicken_path(@chicken),
