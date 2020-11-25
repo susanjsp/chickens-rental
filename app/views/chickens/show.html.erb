@@ -1,7 +1,7 @@
 
 <h1><%=@chicken.name%></h1>
 <% if @chicken.avatar.attached? %>
-  <image src="<%= (url_for(@chicken.avatar)) %>">
+  <image src="<%= (url_for(@chicken.avatar))%>" class="avatar">
 <% end %>
 
 <ul>
