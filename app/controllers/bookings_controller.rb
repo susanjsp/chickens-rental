@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :find_chicken, only: [:new, :create]
   before_action :find_booking, only: [:show, :destroy]
+
   def show
     # @booking = Booking.find(params[:id])
   end
@@ -29,6 +30,10 @@ class BookingsController < ApplicationController
     # @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to chickens_path
+  end
+
+  def my_bookings
+    @bookings = current_user.bookings
   end
 
   private
