@@ -1,0 +1,7 @@
+<h2>Leave a review for chicken </h2>
+
+<%= simple_form_for [@booking, @review] do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :content %>
+  <%= f.submit %>
+<% end %>
