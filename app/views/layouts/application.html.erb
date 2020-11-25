@@ -12,10 +12,11 @@
   </head>
 
   <body>
-    # render partial here
 
-    <div class="container mt-5">
+<%= render "shared/navbar" %>
+ <div class="container mt-5">
+
     <%= yield %>
-    </div>
+  </div>
   </body>
 </html>
