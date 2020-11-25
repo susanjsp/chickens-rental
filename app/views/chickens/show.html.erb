@@ -14,8 +14,10 @@
   <li>Egg size: <%= @chicken.egg_size %></li>
   <li>I am based in <%= @chicken.location %></li>
   <li>$<%= @chicken.daily_rate%> per day</li>
+  <li>Overall rating: <%=  %> </li>
   <li><%= link_to "Book Me!", new_chicken_booking_path(@chicken) %>
 </ul>
+
 
 <div class='reviews-list'>
   <h3>My reviews</h3>
@@ -26,7 +28,9 @@
 </ul>
 </div>
 </div>
+
 <div class="btn btn-info m-5">
+
 <%= link_to "Return to all Chooks", chickens_path %>
 <%= link_to "Delete #{@chicken.name}",
             chicken_path(@chicken),
