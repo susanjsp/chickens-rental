@@ -1,9 +1,14 @@
 
-
+<h1>My Bookings</h1>
 <% @bookings.each do |booking| %>
  <h2>Your booking with <%= booking.chicken.name %></h2>
   <p>From: <%= booking.start_date %>, until: <%= booking.end_date %></p>
   <p>Total price: $<%= booking.price %> AUD</p>
+  <p><%= link_to "Cancel booking",
+            booking_path(booking),
+            method: :delete,
+            data: { confirm: "Are you sure you want to cancel your booking?" } %></p>
+  <p><%= link_to 'Leave a Review', new_booking_review_path(booking) %></p>
 <% end %>
 
 
