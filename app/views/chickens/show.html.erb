@@ -1,7 +1,8 @@
 
 <h1><%=@chicken.name%></h1>
+<div class='chicken-profile'>
 <% if @chicken.avatar.attached? %>
-  <image src="<%= (url_for(@chicken.avatar))%>" class="avatar">
+  <image src="<%= (url_for(@chicken.avatar))%>" class="avatar-chicken">
 <% end %>
 
 <ul>
@@ -15,6 +16,7 @@
   <li><%= link_to "Book Me!", new_chicken_booking_path(@chicken) %>
 </ul>
 
+
 <h3>Reviews for <%= @chicken.name %> </h3>
 <div class="reviews">
   <% @chicken.reviews.each do |review| %>
@@ -24,10 +26,12 @@
       <p>Review by: <%= review.booking.customer.email %> </p>
     </div>
   <% end %>
-</div>
+    </div>
+<div class="btn btn-info m-5">
 
 <%= link_to "Return to all Chooks", chickens_path %>
 <%= link_to "Delete #{@chicken.name}",
             chicken_path(@chicken),
             method: :delete,
             data: { confirm: "Are you sure?" } %>
+</div>
