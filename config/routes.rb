@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :chickens do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:show, :destroy]
+
+  resources :bookings, only: [:show, :destroy] do
+    resources :reviews, only: [:new, :create]
+  end
 
 end
