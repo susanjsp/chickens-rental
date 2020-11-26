@@ -1,7 +1,12 @@
 class ChickensController < ApplicationController
 
   def index
-    @chickens = Chicken.all
+    # @chickens = Chicken.all
+    if params[:query].present?
+      @chickens = Chicken.where("location ILIKE ?", "%#{params[:query]}%")
+    else
+      @chickens = Chicken.all
+    end
   end
 
   def create
