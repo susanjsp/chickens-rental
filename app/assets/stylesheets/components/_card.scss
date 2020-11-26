@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0px -10px;
+    width: 122%;
 }
 
 .card-product {
@@ -43,8 +44,8 @@
   padding-inline-start: 0px;
 }
 
-.card-product-infos i {
-      color: #fe9502;
+.card-pic-rating i {
+    color: #fe9502;
     font-size: 15px;
 }
 .card-product {
@@ -57,7 +58,16 @@
     cursor: pointer;
 }
 
-.card-product img {
-  height: 50%;
-  align: margin-top;
+ .card-pic-rating img {
+  border-radius: 50%;
+  display: block;
+ }
+
+.chicken-image {
+  height: 150px;
 }
+ .chicken-image img {
+  object-fit: cover;
+  height: 150px;
+ }
+
