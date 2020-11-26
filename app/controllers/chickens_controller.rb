@@ -3,7 +3,7 @@ class ChickensController < ApplicationController
   def index
     # @chickens = Chicken.all
     if params[:query].present?
-      sql_query = "location ILIKE :query OR description ILIKE :query OR egg_size ILIKE :query"
+      sql_query = " location ILIKE :query OR description ILIKE :query OR egg_size ILIKE :query"
       @chickens = Chicken.where(sql_query, query: "%#{params[:query]}%")
     else
       @chickens = Chicken.all
