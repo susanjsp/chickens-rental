@@ -1,6 +1,5 @@
-<h1>My Dashboard</h1>
+<h1>My Chickens</h1>
 
-<h2>My Chickens</h2>
 <div class="card-container" style="card w-50">
 
   <% @chickens.each do |chicken| %>
@@ -17,10 +16,3 @@
 <div class="btn btn-info">
 <%=link_to "Add a Chicken to rent", new_chicken_path %>
 </div>
-
-
-<h2>Upcoming Bookings</h2>
-  <%= render 'bookings/bookings', locals: { booking_items: @current_bookings }%>
-
-<h2>Past Bookings</h2>
-  <%= render 'bookings/bookings', locals: { booking_items: @past_bookings }%>

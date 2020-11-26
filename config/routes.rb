@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get '/my_dashboard/', to: 'dashboard#show'
 
+  get '/my_chickens/', to: 'chickens#my_chickens'
 
   resources :chickens do
     resources :bookings, only: [:new, :create]
