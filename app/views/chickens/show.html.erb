@@ -15,7 +15,7 @@
   <li>I am based in <%= @chicken.location %></li>
   <li>$<%= @chicken.daily_rate%> per day</li>
   <li>Overall rating: <%=  %> </li>
-  <li><%= link_to "Book Me!", new_chicken_booking_path(@chicken) %>
+  <li><%= link_to "Book #{@chicken.name}", new_chicken_booking_path(@chicken) %>
 </ul>
 
 
