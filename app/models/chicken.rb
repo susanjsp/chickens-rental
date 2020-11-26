@@ -1,4 +1,10 @@
 class Chicken < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_chicken,
+    against: [ :location, :description, :egg_size ],
+    using: {
+      tsearch: { prefix: true }
+    }
   SIZES = %w(Extra-Small Small Medium Large Extra-Large)
   BREEDS = %w(golden funky cheeky chunky sporty)
 
@@ -15,7 +21,9 @@ class Chicken < ApplicationRecord
   validates :age, numericality: {only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 10 }
   validates :name, uniqueness: true
 
+
   def average_rating
     return "Hello"
   end
+
 end
