@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     @review.booking = @booking
 
     if @review.save
-      redirect_to booking_path(@booking)
+      redirect_to my_dashboard_path
     else
       render :new
     end

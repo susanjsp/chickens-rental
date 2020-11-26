@@ -14,4 +14,18 @@ class Chicken < ApplicationRecord
   validates :breed, inclusion: { in: BREEDS }
   validates :age, numericality: {only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 10 }
   validates :name, uniqueness: true
+
+def upcoming_rentouts
+  bookings.where("start_date > ?", Date.today)
+end
+
+def current_rentouts
+  bookings.where("start_date < ? AND end_date > ?", Date.today, Date.today)
+end
+
+def past_rentouts
+  bookings.where("end_date < ?", Date.today)
+end
+
+
 end
