@@ -33,7 +33,11 @@ class BookingsController < ApplicationController
   end
 
   def my_bookings
-    @bookings = current_user.bookings
+    partitioned = current_user.bookings.partition do |booking|
+      booking.end_date >= Date.today
+    end
+    @current_bookings = partitioned[0].sort_by { |b| b.start_date }
+    @past_bookings = partitioned[1].sort_by { |b| b.start_date }.reverse
   end
 
   private

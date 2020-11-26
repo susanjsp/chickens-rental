@@ -18,22 +18,29 @@
   <li><%= link_to "Book Me!", new_chicken_booking_path(@chicken) %>
 </ul>
 
+  <div class='reviews-list'>
+    <h3>My reviews</h3>
+      <ul>
+        <% @chicken.reviews.each do |review| %>
+          <li><i><%= review.content %></i><strong> ~~~ <%= review.booking.customer.username %></strong>  (<%= review.rating %>/5)</li>
+        <% end %>
+      </ul>
+  </div>
+  </div>
 
-<div class='reviews-list'>
-  <h3>My reviews</h3>
-  <ul>
-  <% @chicken.reviews.each do |review| %>
-  <li><i><%= review.content %></i><strong> ~~~ <%= review.booking.customer.username %></strong>  (<%= review.rating %>/5)</li>
-<% end %>
-</ul>
-</div>
-</div>
+  <div class="btn btn-info m-5">
 
-<div class="btn btn-info m-5">
+    <%= link_to "Return to all Chooks", chickens_path %>
 
-<%= link_to "Return to all Chooks", chickens_path %>
-<%= link_to "Delete #{@chicken.name}",
+    <% if @chicken.owner == current_user %>
+      <%= link_to "Edit #{@chicken.name}", edit_chicken_path %>
+    <% end %>
+
+    <% if @chicken.owner == current_user %>
+      <%= link_to "Delete #{@chicken.name}",
             chicken_path(@chicken),
             method: :delete,
             data: { confirm: "Are you sure?" } %>
-</div>
+    <% end %>
+
+  </div>

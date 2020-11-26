@@ -1,0 +1,18 @@
+<h1>My Chickens</h1>
+
+<div class="card-container" style="card w-50">
+
+  <% @chickens.each do |chicken| %>
+  <div class="card-product">
+  <img src="https://i.guim.co.uk/img/media/30646649ad38eca6e8ddd6108af6de13e43117a4/475_196_4518_3323/master/4518.jpg?width=620&quality=85&auto=format&fit=max&s=02a090a0165f18d45705558a2a7d4d1b" />
+  <div class="card-product-infos">
+    <strong><%=link_to "#{chicken.name}", chicken_path(chicken) %></strong>
+    <%= chicken.description%>
+  </div>
+  </div>
+  <% end %>
+</div>
+
+<div class="btn btn-info">
+<%=link_to "Add a Chicken to rent", new_chicken_path %>
+</div>

@@ -1,5 +1,5 @@
 class Chicken < ApplicationRecord
-  SIZES = %w(XS S M L XL)
+  SIZES = %w(Extra-Small Small Medium Large Extra-Large)
   BREEDS = %w(golden funky cheeky chunky sporty)
 
 

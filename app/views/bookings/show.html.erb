@@ -1,6 +1,7 @@
 <h2>Your booking with <%= @booking.chicken.name %>.</h2>
 
-<p>You have <%= (@booking.end_date - @booking.start_date).to_i %> days booked from <%= @booking.start_date %> to <%= @booking.end_date %></p>
+<p>You have <%= (@booking.end_date - @booking.start_date).to_i %> days booked
+   from <%= @booking.start_date.inspect %> to <%= @booking.end_date.inspect %> </p>
 
 <p>Total booking price: $<%= @booking.price %>.00 AUD </p>
 
