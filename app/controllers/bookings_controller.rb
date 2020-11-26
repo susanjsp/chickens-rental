@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to booking_path(@booking)
     else
-      redirect_to chicken_path(@chicken)
+      render :new
     end
   end
 
