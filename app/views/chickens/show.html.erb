@@ -31,16 +31,18 @@
   <div class="btn btn-info m-5">
 
     <%= link_to "Return to all Chooks", chickens_path %>
-
+  </div>
+    <div class="btn btn-info m-5">
     <% if @chicken.owner == current_user %>
       <%= link_to "Edit #{@chicken.name}", edit_chicken_path %>
     <% end %>
-
+  </div>
     <% if @chicken.owner == current_user %>
+    <div class="btn btn-info m-5">
       <%= link_to "Delete #{@chicken.name}",
             chicken_path(@chicken),
             method: :delete,
             data: { confirm: "Are you sure?" } %>
     <% end %>
-
+  </div>
   </div>
