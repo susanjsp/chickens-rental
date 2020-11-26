@@ -7,6 +7,7 @@ class ChickensController < ApplicationController
   def create
     @chicken = Chicken.new(chicken_params)
     @chicken.owner = current_user
+    raise
     if @chicken.save
       redirect_to chicken_path(@chicken)
     else
