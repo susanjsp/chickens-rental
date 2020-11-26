@@ -7,33 +7,41 @@
   <image src=<%= "https://i.guim.co.uk/img/media/30646649ad38eca6e8ddd6108af6de13e43117a4/475_196_4518_3323/master/4518.jpg?width=620&quality=85&auto=format&fit=max&s=02a090a0165f18d45705558a2a7d4d1b" %> class="avatar-chicken">
 <% end %>
 
-<ul>
-  <li>Hi, my name is <%= @chicken.name %>, owned by <%= @chicken.owner.email %></li>
-  <li>About me: <%= @chicken.description %></li>
-  <li>Age: <%= @chicken.age %></li>
-  <li>Egg size: <%= @chicken.egg_size %></li>
-  <li>I am based in <%= @chicken.location %></li>
-  <li>$<%= @chicken.daily_rate%> per day</li>
-  <li>Overall rating: <%=  %> </li>
-  <li><%= link_to "Book #{@chicken.name}", new_chicken_booking_path(@chicken) %>
-</ul>
-
-
-<div class='reviews-list'>
-  <h3>My reviews</h3>
   <ul>
-  <% @chicken.reviews.each do |review| %>
-  <li><i><%= review.content %></i><strong> ~~~ <%= review.booking.customer.username %></strong>  (<%= review.rating %>/5)</li>
-<% end %>
-</ul>
-</div>
-</div>
+    <li>Hi, my name is <%= @chicken.name %>, owned by <%= @chicken.owner.email %></li>
+    <li>About me: <%= @chicken.description %></li>
+    <li>Age: <%= @chicken.age %></li>
+    <li>Egg size: <%= @chicken.egg_size %></li>
+    <li>I am based in <%= @chicken.location %></li>
+    <li>$<%= @chicken.daily_rate%> per day</li>
+    <li>Overall rating: <%=  %> </li>
+    <li><%= link_to "Book #{@chicken.name}", new_chicken_booking_path(@chicken) %>
+  </ul>
 
-<div class="btn btn-info m-5">
 
-<%= link_to "Return to all Chooks", chickens_path %>
-<%= link_to "Delete #{@chicken.name}",
+  <div class='reviews-list'>
+    <h3>My reviews</h3>
+      <ul>
+        <% @chicken.reviews.each do |review| %>
+          <li><i><%= review.content %></i><strong> ~~~ <%= review.booking.customer.username %></strong>  (<%= review.rating %>/5)</li>
+        <% end %>
+      </ul>
+  </div>
+  </div>
+
+  <div class="btn btn-info m-5">
+
+    <%= link_to "Return to all Chooks", chickens_path %>
+
+    <% if @chicken.owner == current_user %>
+      <%= link_to "Edit #{@chicken.name}", edit_chicken_path %>
+    <% end %>
+
+    <% if @chicken.owner == current_user %>
+      <%= link_to "Delete #{@chicken.name}",
             chicken_path(@chicken),
             method: :delete,
             data: { confirm: "Are you sure?" } %>
-</div>
+    <% end %>
+
+  </div>

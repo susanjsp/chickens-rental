@@ -45,6 +45,10 @@ class ChickensController < ApplicationController
     redirect_to chickens_path
   end
 
+  def my_chickens
+    @chickens = Chicken.where(owner: current_user)
+  end
+
   private
 
   def chicken_params
