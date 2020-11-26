@@ -6,9 +6,9 @@
   <p>Total price: $<%= booking.price %> AUD</p>
 
   <% if booking.review != nil %>
-    <p> Thank you for leaving feedback. </p>
+    <p><em> Thank you for leaving feedback. </em></p>
   <% elsif booking.end_date < Date.today %>
-    <p>We hope you had a great time. </p>
+    <p><em>We hope you had a great time.</em></p>
     <p><%= link_to 'Leave a Review', new_booking_review_path(booking) %></p>
   <% else %>
     <p><%= link_to "Cancel booking",
