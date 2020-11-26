@@ -10,8 +10,7 @@
   <%= f.input :breed, collection: Chicken::BREEDS %>
   <%= f.input :egg_size, collection: Chicken::SIZES %>
   <%= f.input :daily_rate %>
-  <%= f.label "Profile Photo" %>
-  <%= f.file_field :avatar %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit "DONE!"%>
 <% end %>
     </div>

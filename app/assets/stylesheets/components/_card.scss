@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0px -10px;
+    width: 122%;
 }
 
 .card-product {
@@ -38,4 +39,35 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+
+.card-product-infos ul {
+  padding-inline-start: 0px;
+}
+
+.card-pic-rating i {
+    color: #fe9502;
+    font-size: 15px;
+}
+.card-product {
+    position: relative;
+    padding: 25px 25px 20px;
+    width: 40%;
+    min-height: 284px;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+}
+
+ .card-pic-rating img {
+  border-radius: 50%;
+  display: block;
+ }
+
+.chicken-image {
+  height: 150px;
+}
+ .chicken-image img {
+  object-fit: cover;
+  height: 150px;
+ }
 

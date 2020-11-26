@@ -13,6 +13,9 @@ class ChickensController < ApplicationController
   def create
     @chicken = Chicken.new(chicken_params)
     @chicken.owner = current_user
+    filepath = chicken_params[:photo].tempfile.path
+    uploaded_image = Cloudinary::Uploader.upload(filepath)
+    @chicken.photo_url = uploaded_image["secure_url"]
     if @chicken.save
       redirect_to chicken_path(@chicken)
     else
@@ -52,7 +55,7 @@ class ChickensController < ApplicationController
   private
 
   def chicken_params
-    params.require(:chicken).permit(:name, :description, :age, :location, :breed, :egg_size, :daily_rate, :avatar)
+    params.require(:chicken).permit(:name, :description, :age, :location, :breed, :egg_size, :daily_rate, :photo)
   end
 
 

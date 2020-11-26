@@ -4,7 +4,7 @@ class Chicken < ApplicationRecord
 
 
   belongs_to :owner, foreign_key: "owner_id", class_name: 'User'
-  has_one_attached :avatar
+  has_one_attached :photo
 
   has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings, dependent: :destroy
@@ -14,4 +14,8 @@ class Chicken < ApplicationRecord
   validates :breed, inclusion: { in: BREEDS }
   validates :age, numericality: {only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 10 }
   validates :name, uniqueness: true
+
+  def average_rating
+    return "Hello"
+  end
 end
