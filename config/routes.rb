@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   get '/my_bookings/', to: 'bookings#my_bookings'
 
+  get '/my_dashboard/', to: 'dashboard#show'
+
+
   resources :chickens do
     resources :bookings, only: [:new, :create]
   end
@@ -12,6 +15,5 @@ Rails.application.routes.draw do
   resources :bookings, only: [:show, :destroy, :my_bookings] do
     resources :reviews, only: [:new, :create]
   end
-
 
 end
