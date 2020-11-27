@@ -1,26 +1,51 @@
 <h1>My Dashboard</h1>
 
 <h2>My Chickens</h2>
-<div class="card-container" style="card w-50">
 
-  <% @chickens.each do |chicken| %>
-  <div class="card-product">
-  <img src="https://i.guim.co.uk/img/media/30646649ad38eca6e8ddd6108af6de13e43117a4/475_196_4518_3323/master/4518.jpg?width=620&quality=85&auto=format&fit=max&s=02a090a0165f18d45705558a2a7d4d1b" />
-  <div class="card-product-infos">
-    <strong><%=link_to "#{chicken.name}", chicken_path(chicken) %></strong>
-    <%= chicken.description%>
+  <div class="card-container" style="card w-50">
+
+    <% @chickens.each do |chicken| %>
+    <div class="card-product">
+      <img src="https://i.guim.co.uk/img/media/30646649ad38eca6e8ddd6108af6de13e43117a4/475_196_4518_3323/master/4518.jpg?width=620&quality=85&auto=format&fit=max&s=02a090a0165f18d45705558a2a7d4d1b" />
+        <div class="card-product-infos">
+          <strong><%=link_to "#{chicken.name}", chicken_path(chicken) %></strong>
+    <%= chicken.description %>
+        </div>
+    </div>
+    <% end %>
   </div>
-  </div>
-  <% end %>
-</div>
 
-<div class="btn btn-info">
-<%=link_to "Add a Chicken to rent", new_chicken_path %>
-</div>
+<h2>Chickens on loan (current)</h2>
+<% @chickens.each do |chicken| %>
+<% chicken.current_rentouts.each do |rentout|%>
+<p> <%=link_to "#{chicken.name}", chicken_path(chicken) %> has a booking with <%= rentout.customer.username %> from <%= rentout.start_date %> to <%= rentout.end_date %> </p>
+<% end %>
+<% end %>
+
+<h2>Chickens on loan (upcoming) </h2>
+<% @chickens.each do |chicken| %>
+<% chicken.upcoming_rentouts.each do |rentout|%>
+<p> <%=link_to "#{chicken.name}", chicken_path(chicken) %> has a booking with <%= rentout.customer.username %> from <%= rentout.start_date %> to <%= rentout.end_date %> </p>
+<% end %>
+<% end %>
 
 
-<h2>Upcoming Bookings</h2>
-  <%= render 'bookings/bookings', locals: { booking_items: @current_bookings }%>
+<h2>My Current Bookings</h2>
+<% @current_bookings.each do |booking| %>
+<p>You have a booking with <%= link_to "#{booking.chicken.name}", chicken_path(booking.chicken) %> from <%= booking.start_date %> to <%= booking.end_date %> </p>
+<% end %>
 
-<h2>Past Bookings</h2>
-  <%= render 'bookings/bookings', locals: { booking_items: @past_bookings }%>
+<h2>My Upcoming Bookings</h2>
+<% @upcoming_bookings.each do |booking| %>
+<p>You have a booking with <%= link_to "#{booking.chicken.name}", chicken_path(booking.chicken) %> from <%= booking.start_date %> to <%= booking.end_date %> </p>
+<% end %>
+
+<h2>My Past Bookings</h2>
+<% @past_bookings.each do |booking| %>
+<p>You had a booking with <%= link_to "#{booking.chicken.name}", chicken_path(booking.chicken) %> from <%= booking.start_date %> to <%= booking.end_date %> </p>
+<% if booking.review == nil %>
+<%= link_to "Leave a review", new_booking_review_path(booking) %>
+<% else %>
+<p>Thanks for leaving a review!</p>
+<% end %>
+<% end %>
