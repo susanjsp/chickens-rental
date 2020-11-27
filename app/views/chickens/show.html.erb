@@ -8,20 +8,24 @@
           chicken_path(@chicken),
           method: :delete,
           data: { confirm: "Are you sure?" },
-          class:"btn btn-info btn-txt"
-      <% end %>
+          class:"btn btn-info btn-txt" %>
+    <% end %>
   </div>
 
   <h1><%=@chicken.name%></h1>
     <div class='chicken-rating'>
-      <ul class="card-pic-rating">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-
-        <i class="fas fa-star"></i>
-        <i class="far fa-star"></i>
-      </ul>
+      <% if @chicken.average_rating == 0 %>
+        <p> No reviews yet </p>
+      <% else %>
+        <ul class="card-pic-rating">
+          <% @chicken.average_rating.times do  %>
+          <i class="fas fa-star"></i>
+          <% end %>
+          <% (5 - @chicken.average_rating).times do  %>
+          <i class="far fa-star"></i>
+          <% end %>
+        </ul>
+      <% end %>
       <p><em><%=@chicken.owner.username%></em></p>
     </div>
 
