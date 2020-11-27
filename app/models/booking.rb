@@ -7,6 +7,12 @@ class Booking < ApplicationRecord
   validates :start_date, :end_date, presence: true
   validate :past_dates
 
+  def total_cost
+    sum = self.end_date - self.start_date
+    days = sum.to_i
+    days * self.chicken.daily_rate
+  end
+
   private
 
   def past_dates
@@ -21,4 +27,5 @@ class Booking < ApplicationRecord
       errors.add(:end_date, "can't be before start date")
     end
   end
+
 end

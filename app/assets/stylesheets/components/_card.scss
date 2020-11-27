@@ -7,13 +7,24 @@
 
 .card-product {
   overflow: hidden;
-  height: 120px;
-  background: white;
+  background-color: green;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
   width: 40%;
   margin: 10px;
+}
+
+.card-product-top {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+}
+
+.card-product-bottom {
+  display: flex;
+  justify-content: flex-start;
+  background-color: #fff3dd;
+  padding: 5px;
+  border-radius: 0px 0px 5px 5px;
 }
 
 .card-product img {
@@ -37,7 +48,9 @@
 }
 
 .card-product .card-product-infos {
-  padding: 16px;
+  padding: 0px;
+  margin-left: 30px;
+  align-content: center;
 }
 
 .card-product-infos ul {
@@ -45,14 +58,14 @@
 }
 
 .card-pic-rating i {
-    color: #fe9502;
-    font-size: 15px;
+  color: #fe9502;
+  font-size: 15px;
+  padding: 0px;
 }
 .card-product {
     position: relative;
     padding: 25px 25px 20px;
     width: 40%;
-    min-height: 284px;
     border-radius: 6px;
     background: #fff;
     cursor: pointer;
@@ -64,13 +77,18 @@
  }
 
 .chicken-image {
-  height: 150px;
-}
- .chicken-image img {
-  object-fit: cover;
-  height: 150px;
+  height: 140px;
+  width: 105px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  overflow: hidden;
+  box-shadow: 2px 3px 1px black;
+    img {
+    object-fit: cover;
+    height: 140px;
+    width: 105px;
  }
-
+}
 
 
 body{
@@ -142,3 +160,4 @@ a {
     padding: 15px 0;
     color: #424242
 }
+
