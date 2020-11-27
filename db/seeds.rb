@@ -7,23 +7,23 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Creating users..."
-user1 = User.new(email:'Ondine', password:'ondine123', username: "Ondine")
+user1 = User.new(email:'ondine@gmail.com', password:'ondine123', username: "Ondine")
 user1.save!
-user2 = User.new(email:'Susan', password: 'susan123', username: "Susan")
+user2 = User.new(email:'susan@gmail.com', password: 'susan123', username: "Susan")
 user2.save!
-user3 = User.new(email:'Robert', password: 'robert123', username: "Robert")
+user3 = User.new(email:'robert@gmail.com', password: 'robert123', username: "Robert")
 user3.save!
-user4 = User.new(email:'Jurek', password: 'jurek123', username: "Jurek")
+user4 = User.new(email:'jurek@gmail.com', password: 'jurek123', username: "Jurek")
 puts "Creating chicken listings..."
 chicken1 = Chicken.new(
   name:'Henrietta',
   description: "A promiscuous chook looking for a fun time",
-  owner: "Ondine"
+  owner: user1,
   breed: "funky",
   location: "Melbourne",
   age: 5,
   daily_rate: 15,
-  egg_size: "Extra-Small"
+  egg_size: "Extra-Small",
   photo_url: "https://res.cloudinary.com/dyaczxyrx/image/upload/v1606451877/emile-guillemot-NjOobDHQTH8-unsplash_rnk1mj.jpg"
 )
 chicken1.save!
@@ -31,11 +31,11 @@ chicken2 = Chicken.new(
   name:'Frank',
   description: "A serious, hardworking rooster",
   owner: user2,
-  breed: "Robert",
+  breed: "funky",
   location: "Melbourne",
   age: 9,
   daily_rate: 25,
-  egg_size: "Extra-Large"
+  egg_size: "Extra-Large",
   photo_url: "https://res.cloudinary.com/dyaczxyrx/image/upload/v1606451876/daniel-tuttle-9Vte0R1CzAE-unsplash_g2c1wd.jpg"
 
 )
@@ -43,71 +43,71 @@ chicken2.save!
 chicken3 = Chicken.new(
   name:'Ginger',
   description: "A quiet bird with a gentle soul",
-  owner: "Susan"
+  owner: user3,
   breed: "golden",
   location: "Melbourne",
   age: 5,
   daily_rate: 12,
-  egg_size: "Medium"
+  egg_size: "Medium",
   photo_url: "https://res.cloudinary.com/dyaczxyrx/image/upload/v1606451875/brunch-girl_pebe0p.jpg"
 )
 chicken3.save!
 chicken4 = Chicken.new(
   name:'XAE A-12',
   description: "Weird parents - don't ask",
-  owner: "Susan"
+  owner: user2,
   breed: "cheeky",
   location: "Sydney",
   age: 3,
   daily_rate: 15,
-  egg_size: "Small"
+  egg_size: "Small",
   photo_url: "https://res.cloudinary.com/dyaczxyrx/image/upload/v1606451874/cooldud3_brh7cn.jpg"
 )
 chicken4.save!
 chicken5 = Chicken.new(
   name:'Hurdy',
   description: "A true real egg-laying machine",
-  owner: "Ondine"
+  owner: user1,
   breed: "chunky",
   location: "Perth",
   age: 3,
   daily_rate: 50,
-  egg_size: "Large"
+  egg_size: "Large",
   photo_url: "https://res.cloudinary.com/dyaczxyrx/image/upload/v1606451870/bro_fseagt.jpg"
 )
 chicken5.save!
 chicken6 = Chicken.new(
   name:'Trumpster',
   description: "Will make your backyard great again",
-  owner: "Robert"
+  owner: user3,
   breed: "chunky",
   location: "Melbourne",
   age: 3,
   daily_rate: 25,
-  egg_size: "Small"
+  egg_size: "Small",
   photo_url: "https://res.cloudinary.com/dyaczxyrx/image/upload/v1606451870/lbSUhaM_occ5wv.jpg"
 )
 chicken7 = Chicken.new(
   name:'Colonel Saunders',
   description: "I created the Twister!",
-  owner: "Susan"
+  owner: user2,
   breed: "funky",
   location: "Sydney",
   age: 5,
   daily_rate: 48,
-  egg_size: "Large"
+  egg_size: "Large",
   photo_url: "https://res.cloudinary.com/dyaczxyrx/image/upload/v1606451870/blue-hat_weacdn.jpg"
 )
 chicken7.save!
 chicken8 = Chicken.new(
   name:'Franco',
   description: "I cheeky chick with an Italian twist",
-  owner: "Ondine"
+  owner: user1,
   breed: "sporty",
   location: "Brisbane",
   age: 9,
   daily_rate: 25,
-  egg_size: "Large"
+  egg_size: "Large",
   photo_url: "https://res.cloudinary.com/dyaczxyrx/image/upload/v1606362414/05wnp6blbxkv91s4hnl8hki3tvac.jpg"
 
 )
@@ -115,72 +115,72 @@ chicken8.save!
 chicken9 = Chicken.new(
   name:'Maureen',
   description: "Use my eggs for some fluffy cakes",
-  owner: "Robert"
+  owner: user3,
   breed: "golden",
   location: "Brisbane",
   age: 5,
   daily_rate: 12,
-  egg_size: "Medium"
+  egg_size: "Medium",
   photo_url: "https://res.cloudinary.com/dyaczxyrx/image/upload/v1606451886/michael-anfang-OeicdfXqHCM-unsplash_igurgj.jpg"
 )
 chicken9.save!
 chicken10 = Chicken.new(
   name:'Helga',
   description: "Ich liebe dich!",
-  owner: "Ondine"
+  owner: user1,
   breed: "cheeky",
   location: "Sydney",
   age: 3,
   daily_rate: 15,
-  egg_size: "Small"
+  egg_size: "Small",
   photo_url: "https://res.cloudinary.com/dyaczxyrx/image/upload/v1606451869/knitted_hpwz2e.png"
 )
 chicken10.save!
 chicken11 = Chicken.new(
   name:'Natasha',
   description: "Clucking since 2017",
-  owner: "Susan"
+  owner: user2,
   breed: "chunky",
   location: "Melbourne",
   age: 3,
   daily_rate: 50,
-  egg_size: "Large"
+  egg_size: "Large",
   photo_url: "https://res.cloudinary.com/dyaczxyrx/image/upload/v1606451866/silver-fox_jygkzq.jpg"
 )
 chicken11.save!
 chicken12 = Chicken.new(
   name:'Boris',
   description: "I am a bear disguised as a chicken",
-  owner: "Ondine"
+  owner: user1,
   breed: "chunky",
   location: "Perth",
   age: 3,
   daily_rate: 25,
-  egg_size: "Small"
+  egg_size: "Small",
   photo_url: "https://res.cloudinary.com/dyaczxyrx/image/upload/v1606451866/raver_uoqbhm.jpg"
 )
 chicken12.save!
 chicken13 = Chicken.new(
   name:'Basil',
   description: "My eggs are shiny",
-  owner: "Susan"
+  owner: user2,
   breed: "funky",
   location: "Perth",
   age: 5,
   daily_rate: 15,
-  egg_size: "Small"
+  egg_size: "Small",
   photo_url: "https://res.cloudinary.com/dyaczxyrx/image/upload/v1606451865/chicken1_fopcvj.jpg"
 )
 chicken13.save!
 chicken14 = Chicken.new(
   name:'Archie',
   description: "I run on the weekends and lay healthy eggs",
-  owner: "Susan"
+  owner: user2,
   breed: "sporty",
   location: "Brisbane",
   age: 9,
   daily_rate: 25,
-  egg_size: "Large"
+  egg_size: "Large",
   photo_url: "https://res.cloudinary.com/dyaczxyrx/image/upload/v1606451864/lovely-chick_pfusjx.jpg"
 
 )
@@ -270,17 +270,17 @@ booking12 = Booking.new(
   end_date: Date::new(2020,12,17)
   )
 booking12.save!
-review1 = Review.new(
+review10 = Review.new(
   booking: booking1,
   rating: 4,
   content: "Truly a dirty bird. Would definitely recommend!"
   )
-review2 = Review.new(
+review11 = Review.new(
   booking: booking2,
   rating: 2,
   content: "This is an angsty chicken. Doesn't play well with others. I want a refund."
   )
-review3 = Review.new(
+review12 = Review.new(
   booking: booking3,
   rating: 1,
   content: "A bit of a bully. Had tiny eggs too. Dissappointed."
@@ -299,31 +299,33 @@ review3 = Review.new(
   booking: booking6,
   rating: 1,
   content: "Absolutely hated all the pecking."
-  )review1 = Review.new(
+  )
+review4 = Review.new(
   booking: booking7,
   rating: 5,
   content: "Lovely stuff xx!"
   )
-review2 = Review.new(
+review5 = Review.new(
   booking: booking8,
   rating: 4,
   content: "Fun times but a bit too peckish."
   )
-review3 = Review.new(
+review6 = Review.new(
   booking: booking9,
   rating: 3,
   content: "Eggs were waaay larger than expected."
-  )review1 = Review.new(
+  )
+review7 = Review.new(
   booking: booking10,
   rating: 5,
   content: "I loved it!"
   )
-review2 = Review.new(
+review8 = Review.new(
   booking: booking11,
   rating: 5,
   content: "Perfect cuddle for my birthday."
   )
-review3 = Review.new(
+review9 = Review.new(
   booking: booking12,
   rating: 1,
   content: "Too naughty for my liking."
