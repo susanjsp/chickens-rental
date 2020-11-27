@@ -1,10 +1,16 @@
 class Chicken < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_chicken,
+    against: [ :location, :description, :egg_size ],
+    using: {
+      tsearch: { prefix: true }
+    }
   SIZES = %w(Extra-Small Small Medium Large Extra-Large)
   BREEDS = %w(golden funky cheeky chunky sporty)
 
 
   belongs_to :owner, foreign_key: "owner_id", class_name: 'User'
-  has_one_attached :avatar
+  has_one_attached :photo
 
   has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings, dependent: :destroy
@@ -26,6 +32,5 @@ end
 def past_rentouts
   bookings.where("end_date < ?", Date.today)
 end
-
 
 end

@@ -1,0 +1,20 @@
+<% locals[:booking_items].each do |booking| %>
+
+ <h3>Your booking with <%= booking.chicken.name %></h3>
+  <p>You have <%= (booking.end_date - booking.start_date).to_i %> days booked
+   from <%= booking.start_date.inspect %> to <%= booking.end_date.inspect %> </p>
+  <p>Total price: $<%= booking.price %> AUD</p>
+
+  <% if booking.review != nil %>
+    <p><em> Thank you for leaving feedback. </em></p>
+  <% elsif booking.end_date < Date.today %>
+    <p><em>We hope you had a great time.</em></p>
+    <p><%= link_to 'Leave a Review', new_booking_review_path(booking) %></p>
+  <% else %>
+    <p><%= link_to "Cancel booking",
+              booking_path(booking),
+              method: :delete,
+              data: { confirm: "Are you sure you want to cancel your booking?" } %></p>
+  <% end %>
+  <p><%= link_to "Show booking", booking_path(booking) %>
+<% end %>
