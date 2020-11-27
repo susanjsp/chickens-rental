@@ -10,12 +10,12 @@
 
   <div class="form-inline">
     <%= form_tag chickens_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "find by location, egg-size or description"
-        %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "find by location, egg-size or description"
+          %>
+        <%= submit_tag "Search", class: "btn btn-search" %>
     <% end %>
   </div>
 

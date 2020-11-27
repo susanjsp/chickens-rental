@@ -3,3 +3,23 @@ display: block;
 align-items: center;
 
 }
+
+.my_rentouts {
+  background-color: #ffe0a6;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.my_bookings {
+  background-color: #ffdada;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+}
+
+.line {
+  border-bottom: 1px solid #adb5bd;
+  margin: 5px 5px;
+}

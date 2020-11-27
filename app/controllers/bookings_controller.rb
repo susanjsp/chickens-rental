@@ -26,6 +26,10 @@ class BookingsController < ApplicationController
     end
   end
 
+  def price
+    find_price(@chicken, @booking)
+  end
+
   def destroy
     # @booking = Booking.find(params[:id])
     @booking.destroy
