@@ -1,7 +1,29 @@
+.chicken-profile-page {
+  margin: 0px auto 50px auto;
+  width: 75%;
+  ul {
+    padding: 0;
+    list-style-type: none;
+  }
+}
+.buttons-bar {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .chicken-profile {
   display: flex;
   align-items: top;
   justify-content: space-between;
+  margin-bottom: 30px;
+}
+.chicken-rating {
+  display: flex;
+  justify-content: flex-start;
+  p {
+    margin-left: 8px;
+  }
 }
 
 .chicken-profile-pic {
@@ -9,8 +31,22 @@
   max-width: 100%;
 }
 
+.chicken-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 48px;
+  li {
+    margin-bottom: 10px;
+  }
+  #book-me {
+    width: 50%;
+  }
+}
 
 .chicken-pic img {
   height: 300px;
   width: 300px;
+  border: none;
 }
