@@ -3,49 +3,101 @@
 <h2>My Chickens</h2>
 
   <div class="card-container" style="card w-50">
+   <% @chickens.each do |chicken| %>
+      <div class="card-product">
+        <div class="card-product-top">
+          <div class="chicken-image">
+            <% if chicken.photo_url %>
+            <image src="<%= (chicken.photo_url)%>">
+            <% else %>
+            <image src="https://i.guim.co.uk/img/media/30646649ad38eca6e8ddd6108af6de13e43117a4/475_196_4518_3323/master/4518.jpg?width=620&quality=85&auto=format&fit=max&s=02a090a0165f18d45705558a2a7d4d1b">
+            <% end %>
+          </div>
 
-    <% @chickens.each do |chicken| %>
-    <div class="card-product">
-      <img src="https://i.guim.co.uk/img/media/30646649ad38eca6e8ddd6108af6de13e43117a4/475_196_4518_3323/master/4518.jpg?width=620&quality=85&auto=format&fit=max&s=02a090a0165f18d45705558a2a7d4d1b" />
-        <div class="card-product-infos">
-          <strong><%=link_to "#{chicken.name}", chicken_path(chicken) %></strong>
-    <%= chicken.description %>
+          <div class="card-product-infos w-50" style="width:auto;">
+            <h5 class="card-title" style="font-size: 35px" ><%=chicken.name %></h5>
+            <p style="font-size: 20px; font-style: italic; opacity: 0.6"> <%= chicken.description %></p>
+          </div>
         </div>
-    </div>
+
+        <div class="card-product-bottom">
+          <div class="rating-view-me">
+            <div class="card-pic-rating">
+              <ul style ="padding-inline-start: 0; margin-top: 3px; margin-bottom: 3px;">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </ul>
+            </div>
+
+            <div class="btn btn-info" style="width: 105px;" >
+              <%=link_to "View Me", chicken_path(chicken) %>
+            </div>
+          </div>
+
+          <div>
+            <p class="card-text" style="font-size: 17px; margin-left:30px; margin-top:0px" > <%=chicken.location.capitalize %></p>
+            <p class="card-text" style="font-size: 13px; margin-left:30px; margin-top:0px" > $<%=chicken.daily_rate %> per day</p>
+          </div>
+
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+<div class="my_rentouts">
+  <div class="line">
+    <h2>Chickens on loan (current)</h2>
+    <% @chickens.each do |chicken| %>
+    <% chicken.current_rentouts.each do |rentout|%>
+    <p> <%=link_to "#{chicken.name}", chicken_path(chicken) %> has a booking with <%= rentout.customer.username %> from <%= rentout.start_date.inspect %> to <%= rentout.end_date.inspect %> </p>
+    <p>The total value of this booking will be $<%= "#{rentout.total_cost}" %></p>
+    <% end %>
     <% end %>
   </div>
 
-<h2>Chickens on loan (current)</h2>
-<% @chickens.each do |chicken| %>
-<% chicken.current_rentouts.each do |rentout|%>
-<p> <%=link_to "#{chicken.name}", chicken_path(chicken) %> has a booking with <%= rentout.customer.username %> from <%= rentout.start_date %> to <%= rentout.end_date %> </p>
-<% end %>
-<% end %>
+  <div class="line">
+    <h2>Chickens on loan (upcoming) </h2>
+    <% @chickens.each do |chicken| %>
+    <% chicken.upcoming_rentouts.each do |rentout|%>
+    <p> <%=link_to "#{chicken.name}", chicken_path(chicken) %> has a booking with <%= rentout.customer.username %> from <%= rentout.start_date.inspect %> to <%= rentout.end_date.inspect %> </p>
+    <p>The total value of this booking will be $<%= "#{rentout.total_cost}" %></p>
+    <% end %>
+    <% end %>
+  </div>
+</div>
 
-<h2>Chickens on loan (upcoming) </h2>
-<% @chickens.each do |chicken| %>
-<% chicken.upcoming_rentouts.each do |rentout|%>
-<p> <%=link_to "#{chicken.name}", chicken_path(chicken) %> has a booking with <%= rentout.customer.username %> from <%= rentout.start_date %> to <%= rentout.end_date %> </p>
-<% end %>
-<% end %>
+<div class="my_bookings">
 
+  <div class="line">
+    <h2>My Current Bookings</h2>
+    <% @current_bookings.each do |booking| %>
+    <p>You have a booking with <%= link_to "#{booking.chicken.name}", chicken_path(booking.chicken) %> from <%= booking.start_date.inspect %> to <%= booking.end_date.inspect %> </p>
+    <p>The total cost of this booking is $<%= "#{booking.total_cost}" %></p>
+    <% end %>
+  </div>
 
-<h2>My Current Bookings</h2>
-<% @current_bookings.each do |booking| %>
-<p>You have a booking with <%= link_to "#{booking.chicken.name}", chicken_path(booking.chicken) %> from <%= booking.start_date %> to <%= booking.end_date %> </p>
-<% end %>
+  <div class="line">
+    <h2>My Upcoming Bookings</h2>
+    <% @upcoming_bookings.each do |booking| %>
+    <p>You have a booking with <%= link_to "#{booking.chicken.name}", chicken_path(booking.chicken) %> from <%= booking.start_date.inspect %> to <%= booking.end_date.inspect %> </p>
+    <p>The total cost of this booking will be $<%= "#{booking.total_cost}" %></p>
+    <% end %>
+  </div>
 
-<h2>My Upcoming Bookings</h2>
-<% @upcoming_bookings.each do |booking| %>
-<p>You have a booking with <%= link_to "#{booking.chicken.name}", chicken_path(booking.chicken) %> from <%= booking.start_date %> to <%= booking.end_date %> </p>
-<% end %>
+  <div class="line">
+    <h2>My Past Bookings</h2>
+    <% @past_bookings.each do |booking| %>
+    <p>You had a booking with <%= link_to "#{booking.chicken.name}", chicken_path(booking.chicken) %> from <%= booking.start_date.inspect %> to <%= booking.end_date.inspect %> </p>
+    <p>The total cost of this booking was $<%= "#{booking.total_cost}" %></p>
+    <% if booking.review == nil %>
+    <%= link_to "Leave a review", new_booking_review_path(booking) %>
+    <% else %>
+    <p>Thanks for leaving a review!</p>
+    <% end %>
+    <% end %>
+  </div>
+</div>
 
-<h2>My Past Bookings</h2>
-<% @past_bookings.each do |booking| %>
-<p>You had a booking with <%= link_to "#{booking.chicken.name}", chicken_path(booking.chicken) %> from <%= booking.start_date %> to <%= booking.end_date %> </p>
-<% if booking.review == nil %>
-<%= link_to "Leave a review", new_booking_review_path(booking) %>
-<% else %>
-<p>Thanks for leaving a review!</p>
-<% end %>
-<% end %>
