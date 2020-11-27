@@ -22,13 +22,14 @@
           <% end %>
         </div>
 
-        <ul>
+      <ul class="card-pic-rating">
+        <% chicken.average_rating.times do  %>
           <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
+        <% end %>
+        <% (5 - chicken.average_rating).times do  %>
           <i class="far fa-star"></i>
-        </ul>
+        <% end %>
+      </ul>
       </div>
 
       <div class="card-product-infos w-50">

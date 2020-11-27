@@ -39,7 +39,7 @@ class Chicken < ApplicationRecord
       end
       ratings.sum / ratings.count
     else
-      return "No reviews yet"
+      return 0
     end
   end
 
