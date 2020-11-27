@@ -48,6 +48,12 @@
     color: #fe9502;
     font-size: 15px;
 }
+
+.card-pic-rating ul {
+  padding: 0px;
+}
+
+
 .card-product {
     position: relative;
     padding: 25px 25px 20px;
@@ -141,4 +147,9 @@ a {
     display: block;
     padding: 15px 0;
     color: #424242
+}
+
+card-pic-rating img {
+  height: 100px;
+  width: 100px;
 }

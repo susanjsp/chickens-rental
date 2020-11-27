@@ -22,7 +22,7 @@ chicken1 = Chicken.new(
   location: "Melbourne",
   age: 5,
   daily_rate: 15,
-  egg_size: "S"
+  egg_size: "Small"
 )
 chicken1.save!
 chicken2 = Chicken.new(
@@ -33,7 +33,7 @@ chicken2 = Chicken.new(
   location: "Melbourne",
   age: 9,
   daily_rate: 25,
-  egg_size: "XL"
+  egg_size: "Large"
 )
 chicken2.save!
 chicken3 = Chicken.new(
@@ -44,7 +44,7 @@ chicken3 = Chicken.new(
   location: "Melbourne",
   age: 5,
   daily_rate: 12,
-  egg_size: "M"
+  egg_size: "Medium"
 )
 chicken3.save!
 chicken4 = Chicken.new(
@@ -55,7 +55,7 @@ chicken4 = Chicken.new(
   location: "Melbourne",
   age: 3,
   daily_rate: 15,
-  egg_size: "S"
+  egg_size: "Small"
 )
 chicken4.save!
 chicken5 = Chicken.new(
@@ -66,7 +66,7 @@ chicken5 = Chicken.new(
   location: "Melbourne",
   age: 3,
   daily_rate: 50,
-  egg_size: "L"
+  egg_size: "Large"
 )
 chicken5.save!
 chicken6 = Chicken.new(
@@ -77,7 +77,7 @@ chicken6 = Chicken.new(
   location: "Melbourne",
   age: 3,
   daily_rate: 25,
-  egg_size: "S"
+  egg_size: "Small"
 )
 chicken6.save!
 booking1 = Booking.new(
