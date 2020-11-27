@@ -1,7 +1,5 @@
 
 <div class="page-container">
-
-
   <div class="card-container" style="card w-50">
    <% @chickens.each do |chicken| %>
       <div class="card-product">
@@ -23,13 +21,14 @@
         <div class="card-product-bottom">
           <div class="rating-view-me">
             <div class="card-pic-rating">
-              <ul style ="padding-inline-start: 0; margin-top: 3px; margin-bottom: 3px;">
+              <ul class="card-pic-rating">
+                <% chicken.average_rating.times do  %>
                 <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+                <% end %>
+                <% (5 - chicken.average_rating).times do  %>
                 <i class="far fa-star"></i>
-              </ul>
+        <% end %>
+      </ul>
             </div>
 
             <div class="btn btn-info" style="width: 105px;" >
