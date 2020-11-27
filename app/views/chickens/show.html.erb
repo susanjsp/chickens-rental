@@ -8,11 +8,12 @@
           chicken_path(@chicken),
           method: :delete,
           data: { confirm: "Are you sure?" },
-          class:"btn btn-info btn-txt"
-      <% end %>
+          class:"btn btn-info btn-txt" %>
+    <% end %>
   </div>
 
   <h1><%=@chicken.name%></h1>
+    <p> Rating: <%= @chicken.average_rating %></p>
     <div class='chicken-rating'>
       <ul class="card-pic-rating">
         <i class="fas fa-star"></i>
