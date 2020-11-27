@@ -14,6 +14,7 @@ user2.save!
 user3 = User.new(email:'robert@gmail.com', password: 'robert123', username: "Robert")
 user3.save!
 user4 = User.new(email:'jurek@gmail.com', password: 'jurek123', username: "Jurek")
+user4.save!
 puts "Creating chicken listings..."
 chicken1 = Chicken.new(
   name:'Henrietta',
