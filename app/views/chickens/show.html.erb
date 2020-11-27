@@ -58,8 +58,20 @@
     <% end %>
     <ul>
       <% @chicken.reviews.each do |review| %>
-        <li><i><%= review.content %></i><strong> ~~~ <%= review.booking.customer.username %></strong>  (<%= review.rating %>/5)</li>
+      <li>
+        <div class="card-pic-rating review-rating">
+          <% review.rating.times do  %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% (5 - review.rating).times do  %>
+            <i class="far fa-star"></i>
+          <% end %>
+          <em><%= review.created_at.strftime("%B #{review.created_at.day.ordinalize}, %Y") %></em>
+        </div>
+        <p><%= review.content %></p>
+        <p><strong> Review by: <%= review.booking.customer.username %></strong></p>
       <% end %>
+      </li>
     </ul>
   </div>
 
