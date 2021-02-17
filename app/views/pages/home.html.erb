@@ -3,7 +3,9 @@
     <%= link_to "Sign up here", new_user_registration_path %>
   </div>
   <div class="user-info" style="border: solid 1px black;">
-    <em><%= link_to current_user.email, chickens_path %></em>
+    <% if current_user != nil %>
+      <em><%= link_to current_user.email, chickens_path %></em>
+    <% end %>
     <div class="avatar" placeholder="#">
     </div>
   </div>
