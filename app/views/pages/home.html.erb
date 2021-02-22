@@ -1,44 +1,35 @@
-<div class="navbar-lewagon" style="display: flex; justify-content: space-between;">
-  <div class="sign-up btn btn-primary">
-    <%= link_to "Sign up here", new_user_registration_path %>
-  </div>
-  <div class="user-info" style="border: solid 1px black;">
-    <% if current_user != nil %>
-      <em><%= link_to current_user.email, chickens_path %></em>
+<!-- Egg Background -->
+<svg width="510" height="489" viewBox="0 0 510 489" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M256.191 -195.709C180.637 -211.717 102.962 -166.839 44.4437
+  -114.889C-11.2846 -65.4162 -33.2801 9.3745 -56.1326 81.5562C-79.0404 153.912 -109.204 229.228 -87.54
+  301.993C-65.7374 375.221 -7.80829 433.873 58.7731 467.489C119.438 498.118 190.477 491.528 256.191
+  475.539C310.974 462.209 354.918 425.258 395.968 385.446C432.227 350.28 458.901 308.528 477.532 260.869C497.513
+  209.754 518.286 156.149 506.634 102.349C494.395 45.8408 449.794 6.9268 413.065 -36.7849C363.847 -95.36 329.703
+  -180.133 256.191 -195.709Z"
+  fill="white"/>
+  <circle cx="200" cy="150" r="70" fill="#FFD177">
+</svg>
+<svg width="378" height="457" viewBox="0 0 378 457" fill="none" xmlns="http://www.w3.org/2000/svg" class="bottom-egg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M315.25 0.324002C247.319 -1.94211 169.763 6.78844 124.951 55.0476C81.4646 101.878 117.779 176.296 96.965 235.396C75.8991 295.212 -21.3038 339.545 4.24738 397.782C30.5759 457.791 133.729 429.088 194.946 458.717C241.535 481.266 265.258 533.627 315.25 548.306C377.42 566.561 452.624 585.481 505.782 549.986C558.944 514.487 562.662 441.095 567.615 379.792C571.682 329.459 542.447 285.468 531.14 236.131C517.98 178.712 536.715 111.87 496.025 67.4263C452.619 20.0158 381.58 2.53671 315.25 0.324002Z" fill="white"/>
+  <circle cx="370" cy="224" r="70" fill="#FFD177">
+</svg>
+
+<div class="landing-container">
+  <h1>CHICKENS RENTAL
+  <%= image_tag 'chicky-mascot.png', id:'chicken-mascot' %></h1>
+
+  <div class="form-inline">
+    <%= form_tag chickens_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "find by location, egg-size or description"
+          %>
+        <%= submit_tag "Search", class: "btn btn-search" %>
     <% end %>
-    <div class="avatar" placeholder="#">
-    </div>
   </div>
 
-
-</div>
-<div class="container" style="text-align: center; margin-top: 100px; background-color: white;">
-
-  <h1 class="title" style="color: green;">CHICKENS RENTAL</h1>
-
-  <p>Value proposition...</p>
-  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis,
-  repellendus! Voluptates architecto, aspernatur beatae laborum quaerat,
-  praesentium minus! Labore mollitia quae, iusto in doloremque soluta nam neque
-  blanditiis consectetur autem.</p>
-
-
-
-  <ul class="card-container" style="display: flex; justify-content: center;">
-    <li class="card btn btn-primary" style="margin-top: 100px; width: 100px;">
-      <%= link_to "Browse chickens", chickens_path %>
-    </li>
-  </ul>
-
+  <%= link_to "All Chickens", chickens_path, class:"btn-main" %>
 </div>
 
-
-<!-- <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<p>ABOUT</p>
-
-<p>sign up here</p>
-
-
-<%= link_to  %> -->
+<!-- Icon from IconScout: https://iconscout.com -->
