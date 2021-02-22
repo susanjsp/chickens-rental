@@ -1,1 +1,26 @@
 // Specific CSS for your home-page
+svg {
+  position: absolute;
+  z-index: -1;
+}
+.bottom-egg {
+  bottom: 0;
+  right: 0;
+}
+.landing-container {
+  height: 90vh;
+  display: grid;
+  place-items: center;
+  padding: 8rem 0;
+  text-align: center;
+  h1 {
+    position: relative;
+    #chicken-mascot {
+      position: absolute;
+      height: 150px;
+      transform: scaleX(-1);
+      top: -124px;
+      right: 0;
+    }
+  }
+}

@@ -13,3 +13,11 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body { background-color: $light-yellow; }
+h1 { font-size: 5rem; }
+a { &:hover { text-decoration: none; color: unset; }}

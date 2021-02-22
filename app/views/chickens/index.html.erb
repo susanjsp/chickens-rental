@@ -1,48 +1,64 @@
-
 <div class="page-container">
-  <div class="card-container" style="card w-50">
-   <% @chickens.each do |chicken| %>
-      <div class="card-product">
-        <div class="card-product-top">
-          <div class="chicken-image">
-            <% if chicken.photo_url %>
-            <image src="<%= (chicken.photo_url)%>">
-            <% else %>
-            <image src="https://i.guim.co.uk/img/media/30646649ad38eca6e8ddd6108af6de13e43117a4/475_196_4518_3323/master/4518.jpg?width=620&quality=85&auto=format&fit=max&s=02a090a0165f18d45705558a2a7d4d1b">
-            <% end %>
-          </div>
+  <div class="container">
+    <h1>Our Finest Chooks</h1>
 
-          <div class="card-product-infos w-50" style="width:auto;">
-            <h5 class="card-title" style="font-size: 35px" ><%=chicken.name %></h5>
-            <p style="font-size: 20px; font-style: italic; opacity: 0.6"> <%= chicken.description %></p>
-          </div>
-        </div>
+    <div class="form-inline">
+      <%= form_tag chickens_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "find by location, egg-size or description"
+          %>
+        <%= submit_tag "Search", class: "btn btn-search" %>
+      <% end %>
+    </div>
 
-        <div class="card-product-bottom">
-          <div class="rating-view-me">
-            <div class="card-pic-rating">
-              <ul class="card-pic-rating">
-                <% chicken.average_rating.times do  %>
-                <i class="fas fa-star"></i>
-                <% end %>
-                <% (5 - chicken.average_rating).times do  %>
-                <i class="far fa-star"></i>
-        <% end %>
-      </ul>
+    <div class="card-container" style="card w-50">
+     <% @chickens.each do |chicken| %>
+        <div class="card-product">
+          <div class="card-product-top">
+            <div class="chicken-image">
+              <% if chicken.photo_url %>
+              <image src="<%= (chicken.photo_url)%>">
+              <% else %>
+              <image src="https://i.guim.co.uk/img/media/30646649ad38eca6e8ddd6108af6de13e43117a4/475_196_4518_3323/master/4518.jpg?width=620&quality=85&auto=format&fit=max&s=02a090a0165f18d45705558a2a7d4d1b">
+              <% end %>
             </div>
 
-            <div class="btn btn-info" style="width: 105px;" >
-              <%=link_to "View Me", chicken_path(chicken) %>
+            <div class="card-product-infos w-50" style="width:auto;">
+              <h5 class="card-title" style="font-size: 35px" ><%=chicken.name %></h5>
+              <p style="font-size: 20px; font-style: italic; opacity: 0.6"> <%= chicken.description %></p>
             </div>
           </div>
 
-          <div>
-            <p class="card-text" style="font-size: 17px; margin-left:30px; margin-top:0px" > <%=chicken.location.capitalize %></p>
-            <p class="card-text" style="font-size: 13px; margin-left:30px; margin-top:0px" > $<%=chicken.daily_rate %> per day</p>
+          <div class="card-product-bottom">
+            <div class="rating-view-me">
+              <div class="card-pic-rating">
+                <ul class="card-pic-rating">
+                  <% chicken.average_rating.times do  %>
+                  <i class="fas fa-star"></i>
+                  <% end %>
+                  <% (5 - chicken.average_rating).times do  %>
+                  <i class="far fa-star"></i>
+          <% end %>
+        </ul>
+              </div>
+
+              <div class="btn btn-info" style="width: 105px;" >
+                <%=link_to "View Me", chicken_path(chicken) %>
+              </div>
+            </div>
+
+            <div>
+              <p class="card-text" style="font-size: 17px; margin-left:30px; margin-top:0px" > <%=chicken.location.capitalize %></p>
+              <p class="card-text" style="font-size: 13px; margin-left:30px; margin-top:0px" > $<%=chicken.daily_rate %> per day</p>
+            </div>
+
           </div>
 
         </div>
-
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
+</div>
+
